@@ -1,7 +1,5 @@
-#include <iostream>
-#include <cstring>
-
-using namespace std;
+#include <stdio.h>
+#include <string.h>
 
 typedef struct _Endereco Endereco;
 
@@ -13,7 +11,7 @@ struct _Endereco
 	char uf[72];
 	char sigla[2];
 	char cep[8];
-	char lixo[2]; // Dedicado ao Espaço no final da linha e a quebra de linha
+	char lixo[2]; // Dedicado ao Espaco no final da linha e a quebra de linha
 };
 
 int main(int argc, char** argv)
@@ -48,10 +46,10 @@ int main(int argc, char** argv)
 		cmp = strncmp(argv[1],e.cep,8);
 		if(cmp == 0)
 		{
-			cout <<("CEP encontrado! =)\n\n");
-			cout <<("%.72s\n%.72s\n%.72s\n%.72s\n%.2s\n%.8s\n\n",e.logradouro,e.bairro,e.cidade,e.uf,e.sigla,e.cep);
-			cout <<("Total lidos: %d\n", total);
-			fclose(f);
+			printf("CEP encontrado! =)\n\n");
+			printf("%.72s\n%.72s\n%.72s\n%.72s\n%.2s\n%.8s\n\n",e.logradouro,e.bairro,e.cidade,e.uf,e.sigla,e.cep);
+			printf("Total lidos: %d\n", total);
+            fclose(f);
 			return 0;
 		}
 		else if(cmp > 0)
@@ -60,7 +58,7 @@ int main(int argc, char** argv)
 			fim = meio - 1;
 	}
 
-	cout <<("CEP não encontrado! =(\n");
+	printf("Nao encontrado\n");
 	fclose(f);
 	return 1;
 }
